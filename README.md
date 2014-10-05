@@ -13,6 +13,14 @@ As you work through this project, focus on:
 4. Documenting your code with
    [YARD](http://rubydoc.info/gems/yard/file/docs/GettingStarted.md).
 
+## Examples
+
+If you've worked through this project (in whole or in part) and want to have
+your code listed, send a pull request!
+
+* [CodeUnion's Devise, CarrierWave, and Rails
+  Example](http://github.com/codeunion/example-rails-4-image-gallery/)
+
 ## Releases
 Each release is made of individual features. For each feature, create a
 [branch and pull
@@ -30,7 +38,8 @@ Each feature should take between 30 minutes to 3 hours to complete.
 
 ### Release 1.0.0
 
-- [ ] A guest may register as a `User`
+- [ ] A guest may register as a `User` - [Rails
+  Example](https://github.com/codeunion/example-rails-4-image-gallery/pull/1)
 - [ ] A `User` may upload a `Image`
 - [ ] A `User` may see a list of their `Image`s
 - [ ] A guest may not find a `User`s `Image`
