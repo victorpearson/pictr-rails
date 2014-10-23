@@ -11,12 +11,49 @@ describe "User Account Spec" do
       fill_in "user_password", with: "password"
       fill_in "user_password_confirmation", with: "password"
 
-      click_link_or_button "sign up"
+      click_link_or_button "Sign up"
 
 
-      expect(page).to have_content("Account created for skizz@skizz.com")
-      expect(User.exists?(email_address:"skizz@skizz.com")).to be_truthy
+      expect(page).to have_content("You have signed up successfully")
+      expect(User.exists?(email: "skizz@skizz.com")).to be_truthy
       expect(current_path).to eq(root_path)
+    end
+  end
+
+  describe "Logging in" do
+    it "Allows a registered user to log in" do
+      registered_user = User.create({ email: "registered-user@example.com",
+                                      password: "password" })
+
+      visit "/"
+      click_link_or_button "sign_in"
+
+      fill_in "user_email", with: "registered-user@example.com"
+      fill_in "user_password", with: "password"
+
+      click_link_or_button "Log in"
+
+      expect(page).to have_content("Signed in successfully")
+      expect(current_path).to eq(root_path)
+    end
+  end
+
+  describe "Logging out" do
+    it "Allows a signed in user to log out"do
+      registered_user = User.create({ email: "registered-user@example.com",
+                                    password: "password" })
+
+      visit "/"
+      click_link_or_button "sign_in"
+
+      fill_in "user_email", with: "registered-user@example.com"
+      fill_in "user_password", with: "password"
+
+
+
+      click_link_or_button "sign_out"
+
+      expect(page).to have_content("Signed out successfully")
     end
   end
 end

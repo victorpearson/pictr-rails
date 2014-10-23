@@ -7,9 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 <nav>
   <a id="create_account" href="<%= new_user_registration_path %>">Create an Account </a>
+  <a id="sign_in" href="<%= new_user_session_path %>">Sign in </a>
+  <%= link_to("Sign out", destroy_user_session_path, method: :delete, id: :sign_out ) %>
 </nav>
+
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<% if flash[:alert] %>
+  <p class="alert"><%= flash[:alert] %></p>
+<% end %>
 
 <%= yield %>
 
