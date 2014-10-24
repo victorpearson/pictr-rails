@@ -1,0 +1,7 @@
+<%= link_to "Upload Picture", new_picture_path, { id: "upload_picture" } %>
+
+<ul>
+  <% @pictures.each do |picture| %>
+    <li><img src="<%= picture.picture.url %>"></li>
+  <% end %>
+</ul>
